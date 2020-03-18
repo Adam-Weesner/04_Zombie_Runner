@@ -7,7 +7,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyAttack), typeof(Health))]
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] float chaseRadius = 25.0f;
+    [SerializeField] private float chaseRadius = 25.0f;
+    [SerializeField] private float turnSpeed = 5.0f;
     private float distanceToTarget = Mathf.Infinity;
     private bool isProvoked = false;
     private Transform target = null;
@@ -37,6 +38,8 @@ public class EnemyAI : MonoBehaviour
 
     private void EngageTarget()
     {
+        FaceTarget();
+
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
@@ -63,5 +66,17 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.4f);
         Gizmos.DrawWireSphere(transform.position, chaseRadius);
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0.0f, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
+    }
+
+    private void OnDamageTaken()
+    {
+        isProvoked = true;
     }
 }

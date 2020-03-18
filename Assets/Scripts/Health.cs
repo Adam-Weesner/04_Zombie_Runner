@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
 
     public void Damage(int damage)
     {
+        BroadcastMessage(nameof(OnDamageTaken));
         health -= damage;
 
         if (health <= 0)
@@ -23,11 +24,17 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void OnDamageTaken() { }
+
     private void Die()
     {
         if (GetComponent<Player>())
         {
             print("Player dead!");
+            var deathHandler = GetComponent<DeathHandler>();
+            if (!deathHandler) { return; }
+            deathHandler.OnDeath();
+            print("1");
         }
         else
         {
