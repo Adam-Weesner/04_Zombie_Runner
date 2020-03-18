@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRadius = 25.0f;
+    [SerializeField] [Range(0, 100)] private int damage = 1;
     private float distanceToTarget = Mathf.Infinity;
     private bool isProvoked = false;
     private Transform target = null;
@@ -49,6 +50,12 @@ public class EnemyAI : MonoBehaviour
     private void AttackTarget()
     {
         print(name + " is attacking " + target.name + "!");
+        var health = target.GetComponent<Health>();
+        
+        if (health)
+        {
+            health.Damage(damage);
+        }
     }
 
     private void ChaseTarget()

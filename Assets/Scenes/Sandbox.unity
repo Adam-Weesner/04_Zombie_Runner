@@ -1503,24 +1503,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc, type: 3}
---- !u!1 &1970494492153189153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2744897423159704016, guid: 1dbdeb73d9019d246a8a26389f3650d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 4417837604992854769}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1970494492153189154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970494492153189153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471f12bec4dbd7b489862ee3fbc7ce89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4417837604992854769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1532,6 +1514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744897423159704016, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2744897423159993844, guid: 1dbdeb73d9019d246a8a26389f3650d1,
         type: 3}
@@ -1588,25 +1575,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2744897423159993844, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+    - target: {fileID: 8705292561975094371, guid: 1dbdeb73d9019d246a8a26389f3650d1,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2744897423164815990, guid: 1dbdeb73d9019d246a8a26389f3650d1,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: b5fb03f89ab7f5e4fa3377966da9e8c1,
-        type: 2}
-    - target: {fileID: 2744897423164815990, guid: 1dbdeb73d9019d246a8a26389f3650d1,
-        type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2744897423170980912, guid: 1dbdeb73d9019d246a8a26389f3650d1,
-        type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1682,6 +1653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705106656823478804, guid: 30fa6df0ad59f8a43a9c7ba64a59051d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8705106656823478805, guid: 30fa6df0ad59f8a43a9c7ba64a59051d,
         type: 3}
