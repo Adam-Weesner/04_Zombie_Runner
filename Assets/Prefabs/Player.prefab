@@ -159,7 +159,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2744897423159704016}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b5fb03f89ab7f5e4fa3377966da9e8c1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -542,6 +542,11 @@ PrefabInstance:
     - target: {fileID: 125222970810067268, guid: 1e961af91704dd8438af9557a27cb6e3,
         type: 3}
       propertyPath: camera
+      value: 
+      objectReference: {fileID: 2744897423159507958}
+    - target: {fileID: 125222970810067268, guid: 1e961af91704dd8438af9557a27cb6e3,
+        type: 3}
+      propertyPath: mainCamera
       value: 
       objectReference: {fileID: 2744897423159507958}
     - target: {fileID: 7933074272750370782, guid: 1e961af91704dd8438af9557a27cb6e3,

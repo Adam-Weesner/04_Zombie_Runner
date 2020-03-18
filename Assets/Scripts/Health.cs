@@ -8,12 +8,10 @@ public class Health : MonoBehaviour
     [SerializeField] private int startingHealth = 5;
     private int health;
 
-
     void Start()
     {
         health = startingHealth;
     }
-
 
     public void Damage(int damage)
     {
@@ -24,7 +22,6 @@ public class Health : MonoBehaviour
             Die();
         }
     }
-
 
     private void Die()
     {
