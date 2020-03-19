@@ -30,11 +30,9 @@ public class Health : MonoBehaviour
     {
         if (GetComponent<Player>())
         {
-            print("Player dead!");
             var deathHandler = GetComponent<DeathHandler>();
             if (!deathHandler) { return; }
             deathHandler.OnDeath();
-            print("1");
         }
         else
         {
