@@ -13,12 +13,17 @@ public class Health : MonoBehaviour
         health = startingHealth;
     }
 
-    public void Damage(int damage)
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void Damage(uint damage)
     {
         BroadcastMessage(nameof(OnDamageTaken));
-        health -= damage;
+        health -= (int)damage;
 
-        if (health <= 0)
+        if (health < 0)
         {
             SendMessage(nameof(Die));
         }

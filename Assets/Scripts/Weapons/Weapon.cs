@@ -9,21 +9,25 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject hitEffect = null;
     [Header("Weapon Type")]
     [SerializeField] private AmmoTypes type = AmmoTypes.Pistol;
-    [SerializeField] [Range(0, 100)] private int damage = 1;
+    [SerializeField] [Range(0, 100)] private uint damage = 1;
     [SerializeField] private float range = 100.0f;
     [SerializeField] private float secondsBetweenShots = 0.1f;
     [SerializeField] private bool canAutoFire = false;
     private Ammo ammo;
     private bool canShoot = true;
+    private InGameUI inGameUI = null;
 
     private void Start()
     {
         ammo = GetComponentInParent<Ammo>();
+        inGameUI = FindObjectOfType<InGameUI>();
+        UpdateUI();
     }
 
     private void OnEnable()
     {
         canShoot = true;
+        UpdateUI();
     }
 
     void Update()
@@ -54,16 +58,19 @@ public class Weapon : MonoBehaviour
         if (ammo.GetAmmo(type) > 0)
         {
             ammo.ReduceAmmo(type);
+            UpdateUI();
             ProcessRaycast();
             PlayMuzzleFlash();
-        }
-        else
-        {
-            print("Out of ammo!");
         }
 
         yield return new WaitForSeconds(secondsBetweenShots);
         canShoot = true;
+    }
+
+    private void UpdateUI()
+    {
+        if (!inGameUI) { return; }
+        inGameUI.SetAmmo(ammo.GetAmmo(type));
     }
 
     private void ProcessRaycast()

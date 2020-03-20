@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] [Range(0, 100)] private int damage = 1;
+    [SerializeField] [Range(0, 100)] private uint damage = 1;
     private Transform target = null;
 
     private void Start()
@@ -14,7 +14,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void AttackHitEvent()
     {
-        print("Hitting player!");
         var health = target.GetComponent<Health>();
 
         if (health)

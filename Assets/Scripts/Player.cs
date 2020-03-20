@@ -8,10 +8,17 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject[] weapons = null;
+    [SerializeField] private DisplayDamage displayDamage = null;
     private int currIndex;
+    private InGameUI inGameUI = null;
+    private Health health = null;
 
     private void Start()
     {
+        inGameUI = FindObjectOfType<InGameUI>();
+        health = GetComponent<Health>();
+        UpdateUI();
+
         if (weapons.Length > 0)
         {
             weapons[0].SetActive(true);
@@ -76,6 +83,25 @@ public class Player : MonoBehaviour
 
             weapons[currIndex].SetActive(true);
         }
+    }
+
+    private void OnDamageTaken()
+    {
+        UpdateUI();
+        ShowDamageUI();
+    }
+
+    private void ShowDamageUI()
+    {
+        if (!displayDamage) { return; }
+        displayDamage.gameObject.SetActive(false);
+        displayDamage.gameObject.SetActive(true);
+    }
+
+    private void UpdateUI()
+    {
+        if (!health || !inGameUI) { return; }
+        inGameUI.SetHealth(health.GetHealth());
     }
 
     private void Die()
