@@ -2,35 +2,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constants;
 
-[RequireComponent(typeof(Ammo))]
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera = null;
-    [SerializeField] private float range = 100.0f;
+    [SerializeField] private ParticleSystem muzzleFlash = null;
+    [SerializeField] private GameObject hitEffect = null;
+    [Header("Weapon Type")]
+    [SerializeField] private AmmoTypes type = AmmoTypes.CARBINE;
     [SerializeField] [Range(0, 100)] private int damage = 1;
-    [SerializeField] ParticleSystem muzzleFlash = null;
-    [SerializeField] GameObject hitEffect = null;
+    [SerializeField] private float range = 100.0f;
+    [SerializeField] private float secondsBetweenShots = 0.1f;
+    [SerializeField] private bool canAutoFire = false;
     private Ammo ammo;
+    private bool canShoot = true;
 
     private void Start()
     {
-        ammo = GetComponent<Ammo>();
+        ammo = GetComponentInParent<Ammo>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (canShoot)
         {
-            Shoot();
+            if (canAutoFire)
+            {
+                if (Input.GetButton("Fire1"))
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
         }
     }
 
-    private void Shoot()
+    private IEnumerator Shoot()
     {
-        if (ammo.GetAmmo() > 0)
+        canShoot = false;
+
+        if (ammo.GetAmmo(type) > 0)
         {
-            ammo.ReduceAmmo();
+            ammo.ReduceAmmo(type);
             ProcessRaycast();
             PlayMuzzleFlash();
         }
@@ -38,13 +57,16 @@ public class Weapon : MonoBehaviour
         {
             print("Out of ammo!");
         }
+
+        yield return new WaitForSeconds(secondsBetweenShots);
+        canShoot = true;
     }
 
     private void ProcessRaycast()
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range))
         {
             var health = hit.collider.GetComponent<Health>();
 

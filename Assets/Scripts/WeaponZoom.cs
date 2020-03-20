@@ -7,10 +7,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     public class WeaponZoom : MonoBehaviour
     {
-        [SerializeField] private GameObject player = null;
         [SerializeField] private float zoomMin = 28.0f;
         [SerializeField] private float zoomSpeed = 2.0f;
         [SerializeField] private float mouseSensitivityMin = 0.7f;
+        private GameObject player = null;
         private float zoomMax;
         private float mouseSensitivityMax;
         private MouseLook mouseLook;
@@ -18,6 +18,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Start()
         {
             zoomMax = Camera.main.fieldOfView;
+            player = FindObjectOfType<Player>().gameObject;
             mouseLook = player.GetComponent<RigidbodyFirstPersonController>().mouseLook;
             mouseSensitivityMax = mouseLook.XSensitivity;
         }

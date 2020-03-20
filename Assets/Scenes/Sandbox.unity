@@ -275,6 +275,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 625949769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &234405757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289002043909353472, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4417837604992854769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260975809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2049,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1673645184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1083099232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4366633188499156353, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4417837604992854769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1145467715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 45635d5190a12bc4884469b7dcafa846,
@@ -2813,6 +2825,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3681543e5b0f59742b73073cb379cdc6, type: 3}
+--- !u!1 &1710044059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553332443878928523, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4417837604992854769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1786255387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3248,10 +3266,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4474970395695188116, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474970395695188116, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 234405757}
+    - target: {fileID: 4474970395695188116, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1710044059}
+    - target: {fileID: 4474970395695188116, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1083099232}
+    - target: {fileID: 6065935313722484378, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: range
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7456209601936610136, guid: 1dbdeb73d9019d246a8a26389f3650d1,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612082238462300722, guid: 1dbdeb73d9019d246a8a26389f3650d1,
+        type: 3}
+      propertyPath: carbineAmmo
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8705292561975094371, guid: 1dbdeb73d9019d246a8a26389f3650d1,
         type: 3}

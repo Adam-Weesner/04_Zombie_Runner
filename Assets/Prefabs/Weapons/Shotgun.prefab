@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 7933074272752361758}
   - component: {fileID: 125222970810067268}
   m_Layer: 0
-  m_Name: Carbine
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 7933074272750370782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27, y: -0.21, z: -0.06}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 5.5496}
   m_Children:
   - {fileID: 7933074272750461948}
   - {fileID: 7933074272750461944}
@@ -540,7 +540,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25f311c6bbd46e0448befa180cda78ed, type: 2}
+  - {fileID: 2100000, guid: 49858ecb46223404b8475b34c72be073, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -576,11 +576,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 7960126844941291913}
   hitEffect: {fileID: 123177714732130541, guid: 39564f766a99e174dad0eff5e93cc5f5,
     type: 3}
-  type: 1
-  damage: 2
-  range: 30
-  secondsBetweenShots: 0.1
-  canAutoFire: 1
+  type: 2
+  damage: 5
+  range: 12
+  secondsBetweenShots: 1
+  canAutoFire: 0
 --- !u!1 &8811855492581250732
 GameObject:
   m_ObjectHideFlags: 0
