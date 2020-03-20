@@ -20,23 +20,11 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            SendMessage(nameof(Die));
         }
     }
+
+    private void Die() { }
 
     private void OnDamageTaken() { }
-
-    private void Die()
-    {
-        if (GetComponent<Player>())
-        {
-            var deathHandler = GetComponent<DeathHandler>();
-            if (!deathHandler) { return; }
-            deathHandler.OnDeath();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 }

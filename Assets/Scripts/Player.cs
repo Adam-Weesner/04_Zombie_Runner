@@ -77,4 +77,11 @@ public class Player : MonoBehaviour
             weapons[currIndex].SetActive(true);
         }
     }
+
+    private void Die()
+    {
+        var deathHandler = GetComponent<DeathHandler>();
+        if (!deathHandler) { return; }
+        deathHandler.OnDeath();
+    }
 }

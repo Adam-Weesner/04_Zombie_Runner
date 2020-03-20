@@ -79,4 +79,12 @@ public class EnemyAI : MonoBehaviour
     {
         isProvoked = true;
     }
+
+    private void Die()
+    {
+        GetComponent<Animator>().SetTrigger("dying");
+        GetComponent<NavMeshAgent>().enabled = false;
+        Destroy(this);
+        Destroy(GetComponent<Health>());
+    }
 }
