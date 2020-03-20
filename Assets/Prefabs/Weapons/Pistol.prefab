@@ -579,7 +579,7 @@ MonoBehaviour:
   type: 0
   damage: 1
   range: 40
-  secondsBetweenShots: 0.4
+  secondsBetweenShots: 0.2
   canAutoFire: 0
 --- !u!1 &8811855492581250732
 GameObject:

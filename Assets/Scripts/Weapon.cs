@@ -2,14 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Constants;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private ParticleSystem muzzleFlash = null;
     [SerializeField] private GameObject hitEffect = null;
     [Header("Weapon Type")]
-    [SerializeField] private AmmoTypes type = AmmoTypes.CARBINE;
+    [SerializeField] private AmmoTypes type = AmmoTypes.Pistol;
     [SerializeField] [Range(0, 100)] private int damage = 1;
     [SerializeField] private float range = 100.0f;
     [SerializeField] private float secondsBetweenShots = 0.1f;
@@ -20,6 +19,11 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         ammo = GetComponentInParent<Ammo>();
+    }
+
+    private void OnEnable()
+    {
+        canShoot = true;
     }
 
     void Update()

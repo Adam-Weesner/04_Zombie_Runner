@@ -1,62 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Constants;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] private uint pistolAmmo = 10;
-    [SerializeField] private uint carbineAmmo = 10;
-    [SerializeField] private uint shotgunAmmo = 10;
+    [System.Serializable]
+    private class AmmoSlots
+    {
+        public AmmoTypes ammoType = AmmoTypes.Pistol;
+        public uint ammoCount = 10;
+    }
+
+    [SerializeField] AmmoSlots[] ammoSlots = null;
 
     public uint GetAmmo(AmmoTypes ammoType)
     {
-        switch (ammoType)
+        foreach (AmmoSlots slot in ammoSlots)
         {
-            case AmmoTypes.PISTOL:
-                return pistolAmmo;
-            case AmmoTypes.CARBINE:
-                return carbineAmmo;
-            case AmmoTypes.SHOTGUN:
-                return shotgunAmmo;
-            default:
-                return carbineAmmo;
+            if (ammoType == slot.ammoType)
+            {
+                return slot.ammoCount;
+            }
         }
+        return 0;
     }
 
     public void AddAmmo(AmmoTypes ammoType, uint ammo)
     {
-        switch (ammoType)
+        foreach (AmmoSlots slot in ammoSlots)
         {
-            case AmmoTypes.PISTOL:
-                pistolAmmo += ammo;
-                break;
-            case AmmoTypes.CARBINE:
-                carbineAmmo += ammo;
-                break;
-            case AmmoTypes.SHOTGUN:
-                shotgunAmmo += ammo;
-                break;
-            default:
-                break;
+            if (ammoType == slot.ammoType)
+            {
+                slot.ammoCount += ammo;
+            }
         }
     }
 
     public void ReduceAmmo(AmmoTypes ammoType)
     {
-        switch (ammoType)
+        foreach (AmmoSlots slot in ammoSlots)
         {
-            case AmmoTypes.PISTOL:
-                pistolAmmo--;
-                break;
-            case AmmoTypes.CARBINE:
-                carbineAmmo--;
-                break;
-            case AmmoTypes.SHOTGUN:
-                shotgunAmmo--;
-                break;
-            default:
-                break;
+            if (ammoType == slot.ammoType)
+            {
+                slot.ammoCount--;
+            }
         }
     }
 }
